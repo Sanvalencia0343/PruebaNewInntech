@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import BlurOn from '@mui/icons-material/BlurOn';
+import { useNavigate } from 'react-router';
 
 const pages = ['Home'];
 const settings = ['Logout'];
@@ -19,10 +20,13 @@ const settings = ['Logout'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const navigate = useNavigate();
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -35,10 +39,10 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/';
-  };
+  const handleLogout = () => {;
+    sessionStorage.removeItem('token');
+    navigate("/")
+  }; 
 
   return (
     <AppBar position="static">

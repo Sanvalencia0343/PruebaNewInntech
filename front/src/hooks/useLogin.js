@@ -12,11 +12,11 @@ export const useLogin = () => {
     const errors = {};
 
     if (!formData.username) {
-      errors.username = 'El usuario es obligatorio.';
+      errors.username = 'User is required.';
     }
 
     if (!formData.password) {
-      errors.password = 'La contraseña es obligatoria.';
+      errors.password = 'Password is required.';
     }
 
     setErrors(errors);

@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const DataTableUsers = () => {
   const [users, setUsers] = useState([]);
+  const [isAlertVisible, setAlertVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,14 +25,20 @@ const DataTableUsers = () => {
       })
       .catch((error) => console.error("Error al cargar usuarios:", error));
   }, []);
+
   const handleDelete = async (id) => {
     try {
       await deleteUser(id);
       setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+      setAlertVisible(true);
+      setTimeout(() => {
+        setAlertVisible(false);
+      }, 2000); 
     } catch (error) {
       console.error(`Error al eliminar el usuario con ID ${id}:`, error);
     }
   };
+  
   return (
     <Box
       sx={{
@@ -100,6 +107,11 @@ const DataTableUsers = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      {isAlertVisible && (
+      <div className="alert">
+        Usuario eliminado con éxito.
+      </div>
+    )}
     </Box>
   );
 };

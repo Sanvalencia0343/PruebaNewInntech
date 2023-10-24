@@ -29,7 +29,7 @@ const FormUpdate = () => {
     if (validateForm()) {
       updateUser(formData).then((response) => {
         if (response) {
-          navigate('/home');
+          navigate(`/home?update=success`);
         }
       });
       console.log('El Usuario se actualizó correctamente');

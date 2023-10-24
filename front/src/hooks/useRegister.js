@@ -15,23 +15,23 @@ export const useRegister = () => {
     const errors = {};
 
     if (!formData.fullname) {
-      errors.fullname = 'El nombre es obligatorio.';
+      errors.fullname = 'Name is required.';
     }
 
     if (!formData.email) {
-      errors.email = 'El email es obligatorio.';
+      errors.email = 'Email is required.';
     }
 
     if (!formData.phone) {
-      errors.phone = 'El telefono es obligatorio.';
+      errors.phone = 'Phone is required.';
     }
 
     if (!formData.username) {
-      errors.username = 'El usuario es obligatorio.';
+      errors.username = 'User is required.';
     }
 
     if (!formData.password) {
-      errors.password = 'La contraseña es obligatoria.';
+      errors.password = 'Password is required.';
     }
 
     setErrors(errors);

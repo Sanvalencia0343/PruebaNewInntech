@@ -28,10 +28,10 @@ const FormLogin = () => {
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            setErrorMessage("Credenciales incorrectas.");
+            setErrorMessage("Incorrect credentials.");
           } else {
             console.error(error);
-            setErrorMessage("Ocurrió un error al iniciar sesión. Inténtalo de nuevo más tarde.");
+            setErrorMessage("An error occurred while signing in. Try again later.");
           }
         });
     }
